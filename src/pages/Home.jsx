@@ -10,7 +10,7 @@ function Home() {
 
        
           <Link type="button" to="/login" className="btn btn-primary">Login</Link>
-          <Link type="button" to="/register" className="btn btn-secondary">Register</Link>
+          <Link type="button" to="/RegisterCustomer" className="btn btn-secondary">Register</Link>
         </div>
       </div>
    

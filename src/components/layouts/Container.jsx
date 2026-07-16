@@ -1,9 +1,11 @@
+import React from "react";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import React from 'react';
-import Home from '../pages/Home';
-import Login from '../auth/Login';
-import Register from '../customers/RegisterCustomer';
+import Home from "../../pages/Home";
+import CustomerDashboard from "../../pages/CustomerDashboard";
+import Login from "../auth/Login";
+import RegisterCustomer from "../customers/RegisterCustomer";
+import Profile from "../dashboard/Profile";
 
 function Container() {
   return (
@@ -15,15 +17,20 @@ function Container() {
         <nav>
           <Link to="/">Home</Link> | 
           <Link to="/Login">Login</Link> | 
-          <Link to="/Register">Register</Link>
+          <Link to="/RegisterCustomer">Register</Link> 
+          
         </nav>
         <hr />
 
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/Login" element={<Login />} />
-          <Route path="/Register" element={<Register />} />
-        </Routes>
+    <Route path="/" element={<Home />} />
+    <Route path="/Login" element={<Login />} />
+    <Route path="/RegisterCustomer" element={<RegisterCustomer />} />
+
+    <Route path="/CustomerDashboard" element={<CustomerDashboard />} />
+
+      <Route path="/Profile" element={<Profile />}/>
+</Routes>
       </BrowserRouter>
     </div>
   );

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-//import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function RegisterCustomer() {
 
-    //const navigate=useNavigate();
+    const navigate = useNavigate();
 
     const [customer, setCustomer] = useState({});
 
@@ -39,9 +39,11 @@ function RegisterCustomer() {
 
                 console.log(result);
                 
+                localStorage.setItem("customerId", result.CustomerId);
 
                 alert("Customer Registered Successfully");
-                 //navigate("/");
+                
+                navigate("/CustomerDashboard");
             }
             else 
                 {
@@ -55,198 +57,300 @@ function RegisterCustomer() {
     };
 
 
-    return (
-        <div className="container mt-4">
+   return (
+    <div className="container mt-5 mb-5">
 
-            <h2 className="text-center mb-3">Customer Registration</h2>
+        <div className="row justify-content-center">
 
-            <form onSubmit={saveCustomer}>
+            <div className="col-lg-8">
 
-                <table className="table table-bordered">
+                <div className="card shadow-lg">
 
-                    <tbody>
+                    <div className="card-header bg-primary text-white text-center">
+                        <h3>Customer Registration</h3>
+                    </div>
 
-                        <tr>
-                            <td><b>Customer Code</b></td>
-                            <td>
-                                <input type="text" name="CustomerCode" className="form-control"
-                                    onChange={handleChange} />
-                            </td>
-                        </tr>
+                    <div className="card-body">
 
-                        <tr>
-                            <td><b>First Name</b></td>
-                            <td>
-                                <input type="text" name="FirstName" className="form-control"
-                                    onChange={handleChange} />
-                            </td>
-                        </tr>
+                        <form onSubmit={saveCustomer}>
 
-                        <tr>
-                            <td><b>Last Name</b></td>
-                            <td>
-                                <input type="text" name="LastName" className="form-control"
-                                    onChange={handleChange} />
-                            </td>
-                        </tr>
+                            <table className="table table-bordered align-middle">
 
-                        <tr>
-                            <td><b>Date Of Birth</b></td>
-                            <td>
-                                <input type="date" name="DateOfBirth" className="form-control"
-                                    onChange={handleChange} />
-                            </td>
-                        </tr>
+                                <tbody>
 
-                        <tr>
-                            <td><b>Gender</b></td>
-                            <td>
-                                <select name="Gender" className="form-control"
-                                    onChange={handleChange}>
-                                    <option value="">Select Gender</option>
-                                    <option>Male</option>
-                                    <option>Female</option>
-                                    <option>Other</option>
-                                </select>
-                            </td>
-                        </tr>
+                                    <tr>
+                                        <th width="35%">Customer Code</th>
+                                        <td>
+                                            <input
+                                                type="text"
+                                                name="CustomerCode"
+                                                className="form-control"
+                                                onChange={handleChange}
+                                            />
+                                        </td>
+                                    </tr>
 
-                        <tr>
-                            <td><b>Email</b></td>
-                            <td>
-                                <input type="email" name="Email" className="form-control"
-                                    onChange={handleChange} />
-                            </td>
-                        </tr>
+                                    <tr>
+                                        <th>First Name</th>
+                                        <td>
+                                            <input
+                                                type="text"
+                                                name="FirstName"
+                                                className="form-control"
+                                                onChange={handleChange}
+                                            />
+                                        </td>
+                                    </tr>
 
-                        <tr>
-                            <td><b>Mobile Number</b></td>
-                            <td>
-                                <input type="text" name="MobileNumber" className="form-control"
-                                    onChange={handleChange} />
-                            </td>
-                        </tr>
+                                    <tr>
+                                        <th>Last Name</th>
+                                        <td>
+                                            <input
+                                                type="text"
+                                                name="LastName"
+                                                className="form-control"
+                                                onChange={handleChange}
+                                            />
+                                        </td>
+                                    </tr>
 
-                        <tr>
-                            <td><b>Address Line 1</b></td>
-                            <td>
-                                <input type="text" name="AddressLine1" className="form-control"
-                                    onChange={handleChange} />
-                            </td>
-                        </tr>
+                                    <tr>
+                                        <th>Date Of Birth</th>
+                                        <td>
+                                            <input
+                                                type="date"
+                                                name="DateOfBirth"
+                                                className="form-control"
+                                                onChange={handleChange}
+                                            />
+                                        </td>
+                                    </tr>
 
-                        <tr>
-                            <td><b>Address Line 2</b></td>
-                            <td>
-                                <input type="text" name="AddressLine2" className="form-control"
-                                    onChange={handleChange} />
-                            </td>
-                        </tr>
+                                    <tr>
+                                        <th>Gender</th>
+                                        <td>
+                                            <select
+                                                name="Gender"
+                                                className="form-select"
+                                                onChange={handleChange}
+                                            >
+                                                <option value="">Select Gender</option>
+                                                <option>Male</option>
+                                                <option>Female</option>
+                                                <option>Other</option>
+                                            </select>
+                                        </td>
+                                    </tr>
 
-                        <tr>
-                            <td><b>City</b></td>
-                            <td>
-                                <input type="text" name="City" className="form-control"
-                                    onChange={handleChange} />
-                            </td>
-                        </tr>
+                                    <tr>
+                                        <th>Email</th>
+                                        <td>
+                                            <input
+                                                type="email"
+                                                name="Email"
+                                                className="form-control"
+                                                onChange={handleChange}
+                                            />
+                                        </td>
+                                    </tr>
 
-                        <tr>
-                            <td><b>State</b></td>
-                            <td>
-                                <input type="text" name="State" className="form-control"
-                                    onChange={handleChange} />
-                            </td>
-                        </tr>
+                                    <tr>
+                                        <th>Mobile Number</th>
+                                        <td>
+                                            <input
+                                                type="text"
+                                                name="MobileNumber"
+                                                className="form-control"
+                                                onChange={handleChange}
+                                            />
+                                        </td>
+                                    </tr>
 
-                        <tr>
-                            <td><b>Postal Code</b></td>
-                            <td>
-                                <input type="text" name="PostalCode" className="form-control"
-                                    onChange={handleChange} />
-                            </td>
-                        </tr>
+                                    <tr>
+                                        <th>Address Line 1</th>
+                                        <td>
+                                            <input
+                                                type="text"
+                                                name="AddressLine1"
+                                                className="form-control"
+                                                onChange={handleChange}
+                                            />
+                                        </td>
+                                    </tr>
 
-                        <tr>
-                            <td><b>Country</b></td>
-                            <td>
-                                <input type="text" name="Country" className="form-control"
-                                    onChange={handleChange} />
-                            </td>
-                        </tr>
+                                    <tr>
+                                        <th>Address Line 2</th>
+                                        <td>
+                                            <input
+                                                type="text"
+                                                name="AddressLine2"
+                                                className="form-control"
+                                                onChange={handleChange}
+                                            />
+                                        </td>
+                                    </tr>
 
-                        <tr>
-                            <td><b>PAN Number</b></td>
-                            <td>
-                                <input type="text" name="PanNumber" className="form-control"
-                                    onChange={handleChange} />
-                            </td>
-                        </tr>
+                                    <tr>
+                                        <th>City</th>
+                                        <td>
+                                            <input
+                                                type="text"
+                                                name="City"
+                                                className="form-control"
+                                                onChange={handleChange}
+                                            />
+                                        </td>
+                                    </tr>
 
-                        <tr>
-                            <td><b>Aadhaar Number</b></td>
-                            <td>
-                                <input type="text" name="AadhaarNumber" className="form-control"
-                                    onChange={handleChange} />
-                            </td>
-                        </tr>
+                                    <tr>
+                                        <th>State</th>
+                                        <td>
+                                            <input
+                                                type="text"
+                                                name="State"
+                                                className="form-control"
+                                                onChange={handleChange}
+                                            />
+                                        </td>
+                                    </tr>
 
-                        <tr>
-                            <td><b>Occupation</b></td>
-                            <td>
-                                <input type="text" name="Occupation" className="form-control"
-                                    onChange={handleChange} />
-                            </td>
-                        </tr>
+                                    <tr>
+                                        <th>Postal Code</th>
+                                        <td>
+                                            <input
+                                                type="text"
+                                                name="PostalCode"
+                                                className="form-control"
+                                                onChange={handleChange}
+                                            />
+                                        </td>
+                                    </tr>
 
-                        <tr>
-                            <td><b>Annual Income</b></td>
-                            <td>
-                                <input type="number" name="AnnualIncome" className="form-control"
-                                    onChange={handleChange} />
-                            </td>
-                        </tr>
+                                    <tr>
+                                        <th>Country</th>
+                                        <td>
+                                            <input
+                                                type="text"
+                                                name="Country"
+                                                className="form-control"
+                                                onChange={handleChange}
+                                            />
+                                        </td>
+                                    </tr>
 
-                        <tr>
-                            <td><b>Nominee Name</b></td>
-                            <td>
-                                <input type="text" name="NomineeName" className="form-control"
-                                    onChange={handleChange} />
-                            </td>
-                        </tr>
+                                    <tr>
+                                        <th>PAN Number</th>
+                                        <td>
+                                            <input
+                                                type="text"
+                                                name="PanNumber"
+                                                className="form-control"
+                                                onChange={handleChange}
+                                            />
+                                        </td>
+                                    </tr>
 
-                        <tr>
-                            <td><b>Nominee Relationship</b></td>
-                            <td>
-                                <input type="text" name="NomineeRelationship" className="form-control"
-                                    onChange={handleChange} />
-                            </td>
-                        </tr>
+                                    <tr>
+                                        <th>Aadhaar Number</th>
+                                        <td>
+                                            <input
+                                                type="text"
+                                                name="AadhaarNumber"
+                                                className="form-control"
+                                                onChange={handleChange}
+                                            />
+                                        </td>
+                                    </tr>
 
-                        <tr>
-                            <td><b>Nominee Contact Number</b></td>
-                            <td>
-                                <input type="text" name="NomineeContactNumber" className="form-control"
-                                    onChange={handleChange} />
-                            </td>
-                        </tr>
+                                    <tr>
+                                        <th>Occupation</th>
+                                        <td>
+                                            <input
+                                                type="text"
+                                                name="Occupation"
+                                                className="form-control"
+                                                onChange={handleChange}
+                                            />
+                                        </td>
+                                    </tr>
 
-                        <tr>
-                            <td colSpan="2" className="text-center">
-                                <button className="btn btn-primary">
-                                    Save Customer
-                                </button>
-                            </td>
-                        </tr>
+                                    <tr>
+                                        <th>Annual Income</th>
+                                        <td>
+                                            <input
+                                                type="number"
+                                                name="AnnualIncome"
+                                                className="form-control"
+                                                onChange={handleChange}
+                                            />
+                                        </td>
+                                    </tr>
 
-                    </tbody>
+                                    <tr>
+                                        <th>Nominee Name</th>
+                                        <td>
+                                            <input
+                                                type="text"
+                                                name="NomineeName"
+                                                className="form-control"
+                                                onChange={handleChange}
+                                            />
+                                        </td>
+                                    </tr>
 
-                </table>
+                                    <tr>
+                                        <th>Nominee Relationship</th>
+                                        <td>
+                                            <input
+                                                type="text"
+                                                name="NomineeRelationship"
+                                                className="form-control"
+                                                onChange={handleChange}
+                                            />
+                                        </td>
+                                    </tr>
 
-            </form>
+                                    <tr>
+                                        <th>Nominee Contact Number</th>
+                                        <td>
+                                            <input
+                                                type="text"
+                                                name="NomineeContactNumber"
+                                                className="form-control"
+                                                onChange={handleChange}
+                                            />
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td colSpan="2" className="text-center">
+
+                                            <button
+                                                type="submit"
+                                                className="btn btn-success px-5"
+                                            >
+                                                Register Customer
+                                            </button>
+
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
 
         </div>
-    );
+
+    </div>
+);
 }
 
 export default RegisterCustomer;
