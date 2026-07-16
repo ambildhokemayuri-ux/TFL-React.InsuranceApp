@@ -6,6 +6,7 @@ import CustomerDashboard from "../../pages/CustomerDashboard";
 import Login from "../auth/Login";
 import RegisterCustomer from "../customers/RegisterCustomer";
 import Profile from "../dashboard/Profile";
+import UpdateProfile from "../customers/UpdateProfile";
 
 function Container() {
   return (
@@ -30,6 +31,7 @@ function Container() {
     <Route path="/CustomerDashboard" element={<CustomerDashboard />} />
 
       <Route path="/Profile" element={<Profile />}/>
+      <Route path="/UpdateProfile" element={<UpdateProfile />}/>
 </Routes>
       </BrowserRouter>
     </div>

@@ -44,9 +44,9 @@ function Profile() {
 
        <div className="container mt-5">
 
-            <h2 className="text-center mb-4">
-                My Profile
-            </h2>
+    <h2 className="text-center mb-4">
+        My Profile
+    </h2>
 
     <div className="row justify-content-center">
 
@@ -162,7 +162,7 @@ function Profile() {
 </div>
           
 
-</div>
+        </div>
     );
 }
 

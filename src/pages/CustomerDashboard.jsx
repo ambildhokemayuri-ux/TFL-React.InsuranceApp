@@ -3,11 +3,11 @@ import { Link, useNavigate } from "react-router-dom";
 
 function CustomerDashboard() {
 
-    const customerId = localStorage.getItem("customerId");
+    const CustomerId = localStorage.getItem("CustomerId");
     const navigate = useNavigate();
 
     const logout = () => {
-        localStorage.removeItem("customerId");
+        localStorage.removeItem("CustomerId");
         navigate("/");
     };
 
@@ -50,7 +50,7 @@ function CustomerDashboard() {
 
                                     <button
                                         className="btn btn-primary"
-                                        onClick={() => navigate("/profile")}
+                                        onClick={() => navigate("/Profile")}
                                     >
                                         Open
                                     </button>
