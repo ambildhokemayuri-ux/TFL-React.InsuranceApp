@@ -3,9 +3,10 @@ import { useNavigate } from "react-router-dom";
 
 function PurchasePolicy() {
     const navigate = useNavigate();
+    const customerId = localStorage.getItem("customerId");
     const [policy, setPolicy] = useState({
         PolicyNumber: "",
-        CustomerId: "",
+        CustomerId: customerId,
         PolicyType: "",
         PolicyAmount: "",
         IsRenewed: ""
@@ -41,7 +42,7 @@ function PurchasePolicy() {
                 
 
                 alert("Customer Purchased Policy Successfully");
-                navigate("/PayPremium");
+                //navigate("/PayPremium");
             }
             else 
                 {
@@ -90,6 +91,7 @@ function PurchasePolicy() {
                                         name="CustomerId"
                                         className="form-control"
                                         onChange={handleChange}
+                                        value={policy.CustomerId}
                                     />
                                 </td>
                             </tr>

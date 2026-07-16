@@ -7,6 +7,8 @@ import Login from "../auth/Login";
 import RegisterCustomer from "../customers/RegisterCustomer";
 import Profile from "../dashboard/Profile";
 import UpdateProfile from "../customers/UpdateProfile";
+import PurchasePolicy from "../policies/PurchasePolicy";
+import PolicyList from "../policies/PolicyList";
 
 function Container() {
   return (
@@ -32,6 +34,8 @@ function Container() {
 
       <Route path="/Profile" element={<Profile />}/>
       <Route path="/UpdateProfile" element={<UpdateProfile />}/>
+      <Route path="/PurchasePolicy" element={<PurchasePolicy />}/>
+      <Route path="/PolicyList" element={<PolicyList />}/>
 </Routes>
       </BrowserRouter>
     </div>

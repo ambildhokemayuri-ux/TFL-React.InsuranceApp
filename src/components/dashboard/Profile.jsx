@@ -18,6 +18,13 @@ function Profile() {
         navigate("/UpdateProfile");
 
     };
+   
+    const purchasePolicy = (e) => {
+
+        navigate("/PurchasePolicy");
+
+    };
+
 
     const loadCustomer = async () => {
 
@@ -154,6 +161,13 @@ function Profile() {
         onClick={updateProfile}
     >
         Update Profile
+    </button>
+
+    <button
+        className="btn btn-primary"
+        onClick={purchasePolicy}
+    >
+        Purchase Policy
     </button>
 
 </div>

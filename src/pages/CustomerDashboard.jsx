@@ -77,12 +77,12 @@ function CustomerDashboard() {
                                         View purchased policies
                                     </p>
 
-                                    <Link
-                                        to="/policies"
-                                        className="btn btn-success"
+                                    <button
+                                        className="btn btn-primary"
+                                        onClick={() => navigate("/PolicyList")}
                                     >
                                         Open
-                                    </Link>
+                                    </button>
 
                                 </div>
 
