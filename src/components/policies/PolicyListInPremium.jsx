@@ -5,36 +5,37 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-function PolicyList() {
+function PolicyListInPremium() {
 
-    const [policies, setPolicies] = useState({});
+    const [policies, setPolicies] = useState([]);
 
     const customerId = localStorage.getItem("customerId");
 
     const navigate = useNavigate();
 
-   const cancelPolicy = (e) => {
+ 
 
-        navigate("/CancelPolicy");
-
-    };
    
-    const loadpolicies = async () => {
+       const loadpolicies = async () => {
+   
+           const response = await fetch(
+               `http://localhost:5000/api/policies/getPolicyByCustomerId/${customerId}`
+           );
+   
+           const data = await response.json();
+   
+           setPolicies(data);
+           console.log(data);
+   
+       };
+   
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        
+        useEffect(() => {
+           loadpolicies();
+       }, []);
 
-        const response = await fetch(
-            `http://localhost:5000/api/policies/getPolicyByCustomerId/${customerId}`
-        );
-
-        const data = await response.json();
-
-        setPolicies(data);
-        console.log(data);
-
-    };
-
-     useEffect(() => {
-        loadpolicies();
-    }, []);
+    
 
     return (
 
@@ -74,10 +75,14 @@ function PolicyList() {
                                 <td>{policy.IsRenewed}</td>
   
                                 <td>
-                                        <button className="btn btn-primary"
-                                            onClick={cancelPolicy}>
-                                            Cancel Policy
-                                        </button>
+                                        <button className="btn btn-primary" onClick={() => {
+                                                    navigate("/PayPremium", {
+                                                        state: { policy: policy }
+                                                    });
+                                                }}
+                                            >
+                                                Pay Premium
+                                            </button>
                                     </td>  
 
                                 </tr>                              
@@ -105,4 +110,4 @@ function PolicyList() {
 }
 
 
-export default PolicyList;
+export default PolicyListInPremium;

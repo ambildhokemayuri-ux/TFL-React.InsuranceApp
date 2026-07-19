@@ -106,12 +106,12 @@ function CustomerDashboard() {
                                         Pay your premium
                                     </p>
 
-                                    <Link
-                                        to="/premiums"
-                                        className="btn btn-warning"
+                                    <button
+                                        className="btn btn-primary"
+                                        onClick={() => navigate("/PolicyListInPremium")}
                                     >
                                         Open
-                                    </Link>
+                                    </button>
 
                                 </div>
 

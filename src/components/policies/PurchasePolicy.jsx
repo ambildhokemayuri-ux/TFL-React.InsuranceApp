@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+//import { useNavigate } from "react-router-dom";
 
 function PurchasePolicy() {
-    const navigate = useNavigate();
+    //const navigate = useNavigate();
     const customerId = localStorage.getItem("customerId");
     const [policy, setPolicy] = useState({
         PolicyNumber: "",
@@ -26,7 +26,7 @@ function PurchasePolicy() {
 
         try {
 
-        const response = await fetch("http://localhost:5000/api/policies", {
+            const response = await fetch("http://localhost:5000/api/policies", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -40,9 +40,8 @@ function PurchasePolicy() {
 
                 console.log(result);
                 
-
                 alert("Customer Purchased Policy Successfully");
-                //navigate("/PayPremium");
+            
             }
             else 
                 {
@@ -90,8 +89,8 @@ function PurchasePolicy() {
                                         type="number"
                                         name="CustomerId"
                                         className="form-control"
-                                        onChange={handleChange}
                                         value={policy.CustomerId}
+                                        readOnly
                                     />
                                 </td>
                             </tr>

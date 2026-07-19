@@ -5,10 +5,13 @@ import Home from "../../pages/Home";
 import CustomerDashboard from "../../pages/CustomerDashboard";
 import Login from "../auth/Login";
 import RegisterCustomer from "../customers/RegisterCustomer";
-import Profile from "../dashboard/Profile";
+import Profile from "../dashbord/Profile";
 import UpdateProfile from "../customers/UpdateProfile";
 import PurchasePolicy from "../policies/PurchasePolicy";
 import PolicyList from "../policies/PolicyList";
+import CancelPolicy from "../policies/CancelPolicy";
+import PolicyListInPremium from "../policies/PolicyListInPremium";
+import PayPremium from "../premiums/PayPremium";
 
 function Container() {
   return (
@@ -36,6 +39,10 @@ function Container() {
       <Route path="/UpdateProfile" element={<UpdateProfile />}/>
       <Route path="/PurchasePolicy" element={<PurchasePolicy />}/>
       <Route path="/PolicyList" element={<PolicyList />}/>
+      <Route path="/CancelPolicy" element={<CancelPolicy />}/>
+      <Route path="/PolicyListInPremium" element={<PolicyListInPremium />}/>
+      <Route path="/PayPremium" element={<PayPremium />}/>
+
 </Routes>
       </BrowserRouter>
     </div>
