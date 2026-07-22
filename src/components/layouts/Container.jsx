@@ -12,6 +12,9 @@ import PolicyList from "../policies/PolicyList";
 import CancelPolicy from "../policies/CancelPolicy";
 import PolicyListInPremium from "../policies/PolicyListInPremium";
 import PayPremium from "../premiums/PayPremium";
+import AdminDashboard from "../../pages/AdminDashboard";
+import CustomerList from "../customers/CustomerList";
+import PolicyListForAdmin from "../policies/PolicyListForAdmin"
 
 function Container() {
   return (
@@ -28,13 +31,16 @@ function Container() {
         </nav>
         <hr />
 
-        <Routes>
+<Routes>
+    
     <Route path="/" element={<Home />} />
     <Route path="/Login" element={<Login />} />
     <Route path="/RegisterCustomer" element={<RegisterCustomer />} />
 
     <Route path="/CustomerDashboard" element={<CustomerDashboard />} />
-
+    <Route path="/AdminDashboard" element={<AdminDashboard />}/>
+    <Route path="/PolicyListForAdmin" element={<PolicyListForAdmin />} />
+      <Route path="CustomerList" element={<CustomerList />}/>
       <Route path="/Profile" element={<Profile />}/>
       <Route path="/UpdateProfile" element={<UpdateProfile />}/>
       <Route path="/PurchasePolicy" element={<PurchasePolicy />}/>

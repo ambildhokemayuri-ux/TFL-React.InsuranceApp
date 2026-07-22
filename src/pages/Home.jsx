@@ -9,7 +9,7 @@ function Home() {
         <p>Join our trusted brand and protect your future with fast, reliable coverage.</p>
 
        
-          <Link type="button" to="/login" className="btn btn-primary">Login</Link>
+          <Link type="button" to="/Login" className="btn btn-primary">Login</Link>
           <Link type="button" to="/RegisterCustomer" className="btn btn-secondary">Register</Link>
         </div>
       </div>
