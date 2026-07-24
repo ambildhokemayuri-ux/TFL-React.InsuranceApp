@@ -8,6 +8,7 @@ function AdminDashboard() {
 
     const [customerCount, setCustomerCount] = useState(0);
     const [policyCount, setPolicyCount] = useState(0);
+    const [userCount, setUserCount] =useState(0);
 
     useEffect(() => {
 
@@ -20,6 +21,13 @@ function AdminDashboard() {
         loadPolicyCount();
 
     }, []);
+
+    useEffect(() => {
+
+        loadUserCount();
+
+    }, []);
+
 
     const loadCustomerCount = async () => {
 
@@ -42,6 +50,17 @@ function AdminDashboard() {
         const data = await response.json();
           console.log(data); 
         setPolicyCount(data.count);
+      };
+
+      const loadUserCount = async () => {
+
+        const response = await fetch(
+            "http://localhost:5000/api/users/count"
+        );
+
+        const data = await response.json();
+          console.log(data); 
+        setUserCount(data.count);
       };
 
     return (
@@ -83,9 +102,9 @@ function AdminDashboard() {
 
                             <div className="col-md-3">
 
-                                <div className="card bg-success text-white">
+                                <div className="card bg-warning text-dark">
 
-                                    <button className="card bg-success text-white" onClick={() => navigate("/PolicyListForAdmin")}>
+                                    <button className="card bg-warning text-dark" onClick={() => navigate("/PolicyListForAdmin")}>
                                         <h5>Total Policies </h5>
                                            <h2>{policyCount}</h2>
                                     </button>
@@ -98,15 +117,12 @@ function AdminDashboard() {
 
                                 <div className="card bg-warning text-dark">
 
-                                    <div className="card-body">
-
-                                        <h5>Pending Claims</h5>
-
-                                        <h2>12</h2>
+                                    <button className="card bg-warning text-dark" onClick={() => navigate("/UserListForAdmin")}>
+                                        <h5>Total Users </h5>
+                                           <h2>{userCount}</h2>
+                                    </button>
 
                                     </div>
-
-                                </div>
 
                             </div>
 

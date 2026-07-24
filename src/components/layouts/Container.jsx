@@ -15,6 +15,9 @@ import PayPremium from "../premiums/PayPremium";
 import AdminDashboard from "../../pages/AdminDashboard";
 import CustomerList from "../customers/CustomerList";
 import PolicyListForAdmin from "../policies/PolicyListForAdmin"
+import UserListForAdmin from "../users/UserListForAdmin";
+import ResetPassword from "../auth/ResetPassword";
+
 
 function Container() {
   return (
@@ -41,6 +44,8 @@ function Container() {
     <Route path="/AdminDashboard" element={<AdminDashboard />}/>
     <Route path="/PolicyListForAdmin" element={<PolicyListForAdmin />} />
       <Route path="CustomerList" element={<CustomerList />}/>
+      <Route path="UserListForAdmin" element={<UserListForAdmin />} />
+      <Route path="/ResetPassword/:id" element={<ResetPassword />} />
       <Route path="/Profile" element={<Profile />}/>
       <Route path="/UpdateProfile" element={<UpdateProfile />}/>
       <Route path="/PurchasePolicy" element={<PurchasePolicy />}/>

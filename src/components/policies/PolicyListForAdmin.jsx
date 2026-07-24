@@ -29,7 +29,7 @@ function PolicyListForAdmin() {
        <div className="container mt-5">
 
     <h2 className="text-center mb-4">
-        My Policies
+        Policies List
     </h2>
 
     <div className="row justify-content-center">
